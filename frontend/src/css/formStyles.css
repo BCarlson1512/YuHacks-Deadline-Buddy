@@ -1,0 +1,14 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container * {
+    width: 30vw;
+}
+
+h3 {
+    font-family: Roboto;
+    letter-spacing: 0.25vh;
+}

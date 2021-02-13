@@ -22,7 +22,7 @@ function App() {
           </a>
         </header>
         <main>
-          <Route exact path="/" component={HomeScreen}/>
+          <Route exact path="/" component={HomeScreen} />
         </main>
       </div>
     </BrowserRouter>
