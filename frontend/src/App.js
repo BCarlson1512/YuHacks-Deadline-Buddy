@@ -5,24 +5,23 @@ import HomeScreen from './screens/HomeScreen';
 import TestPage from './screens/TestPage'
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import { useState } from 'react';
+import Navbar from './components/Navbar';
+import './css/nav-styles.css'
+
 
 function App() {
+  const [open, setOpen] = useState(false)
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header>
+          <div className={open ? "viewport-icon" : "viewport-180deg"} >
+            <img src="./images/arrow.svg" alt="menu" onClick={(e) => setOpen(!open)}></img>
+          </div>
+          <div>
+            <Navbar open={open} setOpen={setOpen} onClick={(e) => setOpen(!open)}></Navbar>
+          </div>
         </header>
         <main>
           <Route path="/test" component={TestPage}/>
