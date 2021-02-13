@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen';
+import TestPage from './screens/TestPage'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           </a>
         </header>
         <main>
+          <Route path="/test" component={TestPage}/>
           <Route exact path="/" component={HomeScreen}/>
         </main>
       </div>
