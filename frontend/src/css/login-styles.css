@@ -1,0 +1,17 @@
+.login-container > * {
+    font-family: Roboto;
+    letter-spacing: 0.1vw;
+}
+
+.login-redirect {
+    font-size: 3vh;
+}
+
+.login-redirect > a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.login-form *{
+    padding: 1vh;
+}

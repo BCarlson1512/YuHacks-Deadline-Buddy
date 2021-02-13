@@ -3,6 +3,8 @@ import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen';
 import TestPage from './screens/TestPage'
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
         </header>
         <main>
           <Route path="/test" component={TestPage}/>
-          <Route exact path="/" component={HomeScreen}/>
+          <Route exact path="/" component={HomeScreen} />
+          <Route path="/login" component={LoginScreen} />
+          <Route path="/register" component={RegisterScreen} />
         </main>
       </div>
     </BrowserRouter>
