@@ -8,6 +8,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import './css/nav-styles.css'
+import CreateTaskScreen from './screens/CreateTaskScreen';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/" component={HomeScreen} />
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
+          <Route path="/create" component={CreateTaskScreen} />
         </main>
       </div>
     </BrowserRouter>

@@ -1,10 +1,10 @@
 import React from 'react'
-import TodoForm from '../components/TodoForm';
+import TodoItem from '../components/TodoItem';
 
 export default function HomeScreen() {
     return (
         <div>
-            <TodoForm />
+            <TodoItem />
         </div>
     )
 }
