@@ -19,8 +19,9 @@ export default function CalendarItem(props) {
 
     let tasks = []
     if (props.data !== undefined)
-        tasks = props.data.tasks
-
+        tasks = props.data
+        
+    console.log("data " + props.data)
     return (
         <Card style={{ height: '100%' }}>
             <CardHeader title={props.number} titleTypographyProps={{ align: 'left' }} />

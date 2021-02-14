@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import TodoItem from '../components/TodoItem';
-import data from '../data.js';
 import '../css/card-styling.css'
 import Axios from 'axios';
 
@@ -11,15 +10,15 @@ export default function HomeScreen() {
     
     useEffect(() => {
         Axios.get('/api/tasks/')
-    .then(res => {
-        setTasks(res.data.tasks)
-    })
+        .then(res => {
+            setTasks(res.data.tasks)
+        })
         setLoading(false);
     }, [loading])
 
     return (
         <div>
-            <h1>Hello _____ Here is your to do list</h1>
+            <h1>Hello! Here is your to do list</h1>
             <div className="card-container">
                 
                 {!loading &&
