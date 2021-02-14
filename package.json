@@ -1,0 +1,23 @@
+{
+  "name": "yuhacks-deadline-buddy",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Created by Ben Carlson and Mark JP Sanchez for YU hacks 2021",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BCarlson1512/YuHacks-Deadline-Buddy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BCarlson1512/YuHacks-Deadline-Buddy/issues"
+  },
+  "homepage": "https://github.com/BCarlson1512/YuHacks-Deadline-Buddy#readme",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

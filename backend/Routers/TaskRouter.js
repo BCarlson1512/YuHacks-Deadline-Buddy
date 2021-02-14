@@ -7,7 +7,8 @@ const taskRouter = express.Router();
 
 //database seed
 taskRouter.get('/seed', expressAsyncHandler(async (req, res) => {
-    const createdTasks = Task.insertmany(data.tasks);
+    await Task.remove({});
+    const createdTasks = Task.insertMany(data.tasks);
     res.send({createdTasks});
 }));
 
