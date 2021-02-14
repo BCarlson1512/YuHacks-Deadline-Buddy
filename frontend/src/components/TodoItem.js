@@ -10,6 +10,7 @@ import {
     Button
 } from '@material-ui/core'
 import SettingsIcon from '@material-ui/icons/Settings'
+import Axios from 'axios';
 
 const useStyles = makeStyles({
     root: {
@@ -38,6 +39,22 @@ export default function TodoList(props) {
 
     const { task } = props;
 
+    const deleteTaskHandler = (task) => {
+        Axios.delete('/api/tasks/delete', task)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+    }
+
+    const completeTaskHandler = (task) => {
+        Axios.put('/api/tasks/update', task)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+    }
+
     return (
         <Card>
             <CardHeader
@@ -60,10 +77,10 @@ export default function TodoList(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={() => completeTaskHandler(task._id)}>
                     Done!
                 </Button>
-                <Button size="small" color="secondary">
+                <Button size="small" color="secondary" onClick={() => deleteTaskHandler(task._id)}>
                     Delete
                 </Button>
             </CardActions>
