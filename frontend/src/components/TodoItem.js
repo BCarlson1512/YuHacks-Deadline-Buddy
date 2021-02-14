@@ -41,19 +41,27 @@ export default function TodoList(props) {
 
     const deleteTaskHandler = (tid) => {
         console.log(tid);
-        Axios.delete('/api/tasks/delete',{ _id: tid })
-        .then(res => {
-        })
+        Axios.delete('/api/tasks/delete', { _id: tid })
+            .then(res => {
+            })
     }
 
     const completeTaskHandler = (tid) => {
-        Axios.put('/api/tasks/update', { _id: tid, isComplete: "true"})
-        .then(res => {
-        })
+        Axios.put('/api/tasks/update', { _id: tid, isComplete: "true" })
+            .then(res => {
+            })
     }
 
+    const dateJS = new Date(task.date)
+    const options = {
+        year: 'numeric', month: 'numeric', day: 'numeric',
+        hour: 'numeric', minute: 'numeric', second: 'numeric',
+        hour12: false,
+        timeZone: 'America/Los_Angeles'
+    };
+
     return (
-        <Card>
+        <Card raised style={{ backgroundColor: 'yellow' }}>
             <CardHeader
                 action={
                     <IconButton aria-label="settings">
@@ -67,7 +75,7 @@ export default function TodoList(props) {
                     {task.name}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                    {task.date}
+                    {new Intl.DateTimeFormat('en-US', options).format(dateJS)}
                 </Typography>
                 <Typography variant="body2" component="p">
                     {task.description}

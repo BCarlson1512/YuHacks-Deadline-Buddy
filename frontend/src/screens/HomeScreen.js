@@ -24,7 +24,9 @@ export default function HomeScreen() {
                 
                 {!loading &&
                     tasks.map((task) => (
+                        <div style={{padding:'0px 10px'}}>
                         <TodoItem key={task._id} task={task} />
+                        </div>
                     ))
                 }
                 {loading &&
