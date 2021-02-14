@@ -1,10 +1,10 @@
 import React from 'react'
-import TodoItem from '../components/TodoItem'
+import CalendarInterface from '../components/CalendarInterface'
 
 export default function HomeScreen() {
     return (
-        <div style={{width: '500px', backgroundColor: 'red'}}>
-            <TodoItem />
+        <div style={{width:'100%'}}>
+            <CalendarInterface />
         </div>
     )
 }
