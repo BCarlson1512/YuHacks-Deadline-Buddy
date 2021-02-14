@@ -31,7 +31,7 @@ taskRouter.post('/', expressAsyncHandler(async (req, res) => {
 }))
 
 taskRouter.put('/update', expressAsyncHandler(async (req, res) => {
-    const task = await Task.findById(req.task._id);
+    const task = await Task.findById(req.body._id);
     if (task) {
         task.isComplete = req.body.isComplete;
         const updatedTask = await task.save();
@@ -40,7 +40,7 @@ taskRouter.put('/update', expressAsyncHandler(async (req, res) => {
 }))
 
 taskRouter.delete('/delete', expressAsyncHandler(async (req, res) => {
-    const task = await Task.findById(req.task._id);
+    const task = await Task.findById(req.body._id);
     if (task) {
         const deleteTask = await task.remove();
         res.send("task deleted");
