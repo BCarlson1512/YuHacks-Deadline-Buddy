@@ -18,16 +18,35 @@ taskRouter.get('/', expressAsyncHandler(async (req, res) => {
 }));
 
 taskRouter.post('/', expressAsyncHandler(async (req, res) => {
-    console.log(req.body);
     const task = new Task({
         name: req.body.name,
         type: req.body.type,
         description: req.body.description,
         priority: req.body.priority,
         isComplete: req.body.isComplete,
+        date: req.body.date,
     });
     const createdTask = await task.save();
     res.send("Task Created successfully" );
+}))
+
+taskRouter.put('/update', expressAsyncHandler(async (req, res) => {
+    const task = await Task.findById(req.body._id);
+    if (task) {
+        task.isComplete = req.body.isComplete;
+        const updatedTask = await task.save();
+        res.send("Task completed");
+    } 
+}))
+
+taskRouter.delete('/delete', expressAsyncHandler(async (req, res) => {
+    const task = await Task.findById(req.body._id);
+    if (task) {
+        const deleteTask = await task.remove();
+        res.send("task deleted");
+    } else {
+        res.status(401).send("task not found");
+    }
 }))
 
 export default taskRouter;
