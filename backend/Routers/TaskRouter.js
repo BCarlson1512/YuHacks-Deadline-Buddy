@@ -18,6 +18,7 @@ taskRouter.get('/', expressAsyncHandler(async (req, res) => {
 }));
 
 taskRouter.post('/', expressAsyncHandler(async (req, res) => {
+    console.log(req.body);
     const task = new Task({
         name: req.body.name,
         type: req.body.type,
@@ -25,6 +26,8 @@ taskRouter.post('/', expressAsyncHandler(async (req, res) => {
         priority: req.body.priority,
         isComplete: req.body.isComplete,
     });
+    const createdTask = await task.save();
+    res.send("Task Created successfully" );
 }))
 
 export default taskRouter;
