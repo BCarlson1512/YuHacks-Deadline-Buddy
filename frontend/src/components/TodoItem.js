@@ -36,12 +36,7 @@ const useStyles = makeStyles({
 export default function TodoList(props) {
     const classes = useStyles();
 
-    const taskInfo = {
-        type: "Task",
-        due: "Tomorrow at 12 pm!",
-        name: "Kill Myself",
-        details: "Tis a meme but the urge is getting stronger as the days go by."
-    }
+    const { task } = props;
 
     return (
         <Card>
@@ -51,17 +46,17 @@ export default function TodoList(props) {
                         <SettingsIcon />
                     </IconButton>
                 }
-                title={taskInfo.type}
+                title={task.type}
             />
             <CardContent className={classes.content}>
                 <Typography variant="h5" component="h2">
-                    {taskInfo.name}
+                    {task.name}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                    {taskInfo.due}
+                    {task.date}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    {taskInfo.details}
+                    {task.description}
                 </Typography>
             </CardContent>
             <CardActions>

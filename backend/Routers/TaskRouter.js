@@ -18,7 +18,11 @@ taskRouter.get('/', expressAsyncHandler(async (req, res) => {
 
 taskRouter.post('/', expressAsyncHandler(async (req, res) => {
     const task = new Task({
-
+        name: req.body.name,
+        type: req.body.type,
+        description: req.body.description,
+        priority: req.body.priority,
+        isComplete: req.body.isComplete,
     });
 }))
 
