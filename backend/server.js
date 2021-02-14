@@ -6,7 +6,7 @@ import taskRouter from './Routers/TaskRouter.js';
 
 const app = express();
 
-app.use(express.static(path.join(path.resolve(), '../frontend/build')));
+app.use(express.static(path.join(path.resolve(), '/frontend/build')));
 
 app.use(express.json()); // parse http requests
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +21,7 @@ app.use('/api/users', userRouter);
 app.use('/api/tasks', taskRouter);
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(path.resolve(), '../frontend/build/index.html'));
+    res.sendFile(path.join(path.resolve(), '/frontend/build/index.html'));
 })
 
 app.use((err, req, res, next) => {
