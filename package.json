@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/BCarlson1512/YuHacks-Deadline-Buddy#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "mongoose": "^5.11.16",
     "nodemon": "^2.0.7"
   }
 }
