@@ -29,6 +29,6 @@ app.use((err, req, res, next) => {
 })
 
 const port = 5000;
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`server started on https://localhost:${port}`);
 })
