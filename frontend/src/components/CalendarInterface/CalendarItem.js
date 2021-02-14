@@ -28,16 +28,15 @@ export default function CalendarItem(props) {
             <CardContent style={{ margin: '-30px -10px' }}>
                 {(props.data !== undefined) && (
                     <Paper>
-                        <TableContainer style={{ width: '100%', maxHeight: '150px', margin: '0px 0px' }}>
+                        <TableContainer style={{ width: '100%', maxHeight: '150px', margin: '0px 0px'  }}>
                             <Table stickyHeader>
                                 <TableHead>
                                     <TableRow tabIndex={-1}>
-                                        <TableCell style={{ width: '1000px', height: '5px', backgroundColor: 'yellow' }} align='center'>
+                                        <TableCell style={{ width: '1000px', height: '5px', backgroundColor: '#3C4B64' }} align='center'>
                                             TO DO
                                     </TableCell>
                                     </TableRow>
                                 </TableHead>
-
                                 <TableBody>
                                     {tasks.map(taskInfo => (
                                         <TableRow>

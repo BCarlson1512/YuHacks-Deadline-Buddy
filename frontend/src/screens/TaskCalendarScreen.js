@@ -8,7 +8,7 @@ export default function TaskCalendar() {
     return (
         <div>
             <Animated animationIn="rollIn">
-                <h1  style={{fontFamily:"Roboto"}}>Your Monthly Overview</h1>
+                <h1 style={{fontFamily:"Roboto"}}>Your Monthly Overview</h1>
             </Animated>
             <Animated>
                 <CalendarInterface />

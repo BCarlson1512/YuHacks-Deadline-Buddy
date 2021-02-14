@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+:root {
+  background-color: #413C64;
+  color:#ffffff
+}
+
 .App {
   display: grid;
   grid-template-areas: 

@@ -9,13 +9,10 @@ import {
     Select,
     MenuItem
 } from '@material-ui/core'
-
 import CalendarItem from './CalendarItem'
-
-import DateUtils from '../../util/dateUtils'
-
 import { FakeData } from './CalendarFakeData'
 import axios from 'axios'
+import { Animated } from 'react-animated-css'
 
 /**
  * 
@@ -25,7 +22,7 @@ import axios from 'axios'
 const generateDatesFromData = (dateData, year, month) => {
     var dates = []
 
-    //Scuffed search
+    //Scuffed search (it works, poggers)
     const monthData = {}
 
     for (var i = 0 ; i < dateData.length; i++) {
@@ -48,7 +45,9 @@ const generateDatesFromData = (dateData, year, month) => {
             dayNum++;
         dates.push((
             <GridListTile key={i} cols={1}>
-                <CalendarItem key={i} number={dayNum} data={monthData['' + dayNum]} />
+                <Animated animationIn="rotateInUpLeft">
+                    <CalendarItem key={i} number={dayNum} data={monthData['' + dayNum]} />
+                </Animated>
             </GridListTile>
         ))
     }

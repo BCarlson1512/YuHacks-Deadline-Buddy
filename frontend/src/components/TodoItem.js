@@ -62,7 +62,7 @@ export default function TodoList(props) {
     };
 
     return (
-        <Card raised style={{ backgroundColor: 'yellow' }}>
+        <Card raised style={{ backgroundColor:" #3C4B64", color:"#ffffff"}}>
             <CardHeader
                 action={
                     <IconButton aria-label="settings">
@@ -78,7 +78,7 @@ export default function TodoList(props) {
                 <Typography variant="h8" component="p">
                     Importance: {task.priority}
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
+                <Typography className={classes.pos} color="textSecondary" style={{color: "#ffffff"}}>
                     {new Intl.DateTimeFormat('en-US', options).format(dateJS)}
                 </Typography>
                 
@@ -88,10 +88,10 @@ export default function TodoList(props) {
                 
             </CardContent>
             <CardActions>
-                <Button size="small" color="primary" onClick={() => completeTaskHandler(task._id)}>
+                <Button size="small" style={{color:"#AFB6F0"}} onClick={() => completeTaskHandler(task._id)}>
                     Done!
                 </Button>
-                <Button size="small" color="secondary" onClick={() => deleteTaskHandler(task._id)}>
+                <Button size="small" style={{color:"#ffffff"}} onClick={() => deleteTaskHandler(task._id)}>
                     Delete
                 </Button>
             </CardActions>
