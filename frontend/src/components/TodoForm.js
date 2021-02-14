@@ -30,10 +30,10 @@ export default function TodoForm() {
         <div>
             <h3>Create a New Task!</h3>
             <form className="form-container" onSubmit={(e) => submitHandler(e)}>
-                <TextField id="standard-basic" label="Name" onChange={(e) => setName(e.target.value)} />
-                <TextField id="standard-basic" label="Description" onChange={(e) => setDesc(e.target.value)}/>
-                <TextField id="standard-basic" label="Type of Task" onChange={(e) => setType(e.target.value)}/>
-                <TextField id="standard-basic" type="number" label="Importance" onChange={(e) => setPriority(e.target.value)}/>
+                <TextField id="standard-basic" label="Name" onChange={(e) => setName(e.target.value)} required={true}/>
+                <TextField id="standard-basic" label="Description" onChange={(e) => setDesc(e.target.value)} required={true}/>
+                <TextField id="standard-basic" label="Type of Task" onChange={(e) => setType(e.target.value)} required={true}/>
+                <TextField id="standard-basic" type="number" label="Importance" onChange={(e) => setPriority(e.target.value)} required={true}/>
                 <TextField
                     id="datetime-local"
                     label="Date"
@@ -43,7 +43,7 @@ export default function TodoForm() {
                     InputLabelProps={{
                         shrink: true,
                     }}
-                    onChange={e => parseDate(e.target.value)} />
+                    onChange={e => parseDate(e.target.value)} required={true}/>
                 <Button variant="contained" color="primary" type="submit"> Submit </Button>
             </form>
         </div>
