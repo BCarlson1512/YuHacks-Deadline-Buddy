@@ -1,0 +1,24 @@
+{
+  "name": "deadline-bud",
+  "version": "1.0.0",
+  "description": "Created by Ben Carlson and Mark JP Sanchez for YU hacks 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BCarlson1512/YuHacks-Deadline-Buddy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BCarlson1512/YuHacks-Deadline-Buddy/issues"
+  },
+  "homepage": "https://github.com/BCarlson1512/YuHacks-Deadline-Buddy#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "mongoose": "^5.11.16"
+  }
+}
