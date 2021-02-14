@@ -9,6 +9,7 @@ import { useState } from 'react';
 import Navbar from './components/Navbar';
 import './css/nav-styles.css'
 import CreateTaskScreen from './screens/CreateTaskScreen';
+import TaskCalendarScreen from './screens/TaskCalendarScreen';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/create" component={CreateTaskScreen} />
+          <Route path="/tasks/monthly" component={TaskCalendarScreen}/>
         </main>
       </div>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Card,
     CardHeader,
@@ -12,10 +12,9 @@ import CalendarItem from './CalendarItem'
 
 import { FakeData } from './CalendarFakeData'
 
-const generateDatesFromData = (dateData) => {
+const generateDatesFromData = (dateData, numDays) => {
     var dates = []
-
-    for (var i = 0; i < 31; i++) {
+    for (var i = 0; i < numDays; i++) {
         dates.push((
             <GridListTile key={i} cols={1}>
                 <CalendarItem number={i + 1} data={dateData['' + (i + 1)]}  />
@@ -26,8 +25,12 @@ const generateDatesFromData = (dateData) => {
     return dates
 }
 
-export default function CalendarInterface(props) {
 
+
+export default function CalendarInterface(props) {
+    
+    const [monthIndex, setMonthIndex] = useState(0);
+    
     return (
         <Card>
             <CardHeader title={FakeData.month} />
@@ -43,7 +46,7 @@ export default function CalendarInterface(props) {
                 </GridList>
 
                 <GridList cellHeight={200} cols={7}>
-                    {generateDatesFromData(FakeData.dayData)}
+                    {generateDatesFromData(FakeData.dayData, FakeData.numDays)}
                 </GridList>
             </CardContent>
 
