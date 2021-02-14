@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Card,
     CardHeader,
@@ -13,6 +13,7 @@ import CalendarItem from './CalendarItem'
 import DateUtils from '../../util/dateUtils'
 
 import { FakeData } from './CalendarFakeData'
+import axios from 'axios'
 
 /**
  * 
@@ -21,33 +22,38 @@ import { FakeData } from './CalendarFakeData'
  */
 const generateDatesFromData = (dateData) => {
     var dates = []
-
-    let firstDay = new Date(dateData.year, dateData.month, 1)
-    let lastDay = new Date(dateData.year, dateData.month + 1, 0)
-
+    console.log(dateData)
+    let firstDay = new Date(dateData.date.substring(0,3), dateData.date.substring(5,6) + 1, 1)
+    let lastDay = new Date(dateData.date.substring(0,3), dateData.date.substring(5,6) + 2, 0)
     let dayNum = 0
     for (var i = 0; i < firstDay.getDay() + lastDay.getDate(); i++) {
         if (i >= firstDay.getDay())
             dayNum++;
-
         dates.push((
             <GridListTile key={i} cols={1}>
-                { (dayNum > 0) && <CalendarItem number={dayNum} data={dateData.dayData['' + dayNum]}  /> }
+                <CalendarItem key={i} number={dayNum} data={dateData} />
             </GridListTile>
         ))
     }
-
     return dates
 }
-
-
-    
 
 
 export default function CalendarInterface(props) {
     
     const data = FakeData
-    
+
+    const [loading, setLoading] = useState(true);
+    const [tasks, setTasks] = useState([])
+
+    useEffect(() => {
+        axios.get('/api/tasks')
+        .then(res => {
+            setTasks(res.data.tasks);
+        })
+        setLoading(false);
+    }, [loading])
+
     return (
         <Card>
             <CardHeader title={DateUtils.getMonthName(data.month)} />
@@ -63,7 +69,10 @@ export default function CalendarInterface(props) {
                 </GridList>
 
                 <GridList cellHeight={200} cols={7}>
-                    {generateDatesFromData(data)}
+                    {!loading && (
+                        tasks.map((task) => { (generateDatesFromData(task)) }
+                        )
+                    )} 
                 </GridList>
             </CardContent>
 

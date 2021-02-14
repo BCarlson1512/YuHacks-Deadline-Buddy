@@ -41,9 +41,10 @@ export default function TodoList(props) {
 
     const deleteTaskHandler = (tid) => {
         console.log(tid);
-        Axios.delete('/api/tasks/delete', { _id: tid })
+        Axios.delete('/api/tasks/delete', { data : {_id: tid}})
             .then(res => {
-            })
+            console.log(res)
+        })
     }
 
     const completeTaskHandler = (tid) => {

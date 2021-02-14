@@ -40,6 +40,7 @@ taskRouter.put('/update', expressAsyncHandler(async (req, res) => {
 }))
 
 taskRouter.delete('/delete', expressAsyncHandler(async (req, res) => {
+    console.log(req)
     const task = await Task.findById(req.body._id);
     if (task) {
         const deleteTask = await task.remove();
