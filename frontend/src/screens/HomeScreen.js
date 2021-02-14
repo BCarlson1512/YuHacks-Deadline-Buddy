@@ -9,13 +9,12 @@ export default function HomeScreen() {
     const [tasks, setTasks] = useState([]);
     
     useEffect(() => {
-        Axios.get('/api/tasks/')
+        Axios.get('/api/tasks/importanceDescending')
         .then(res => {
             setTasks(res.data.tasks)
         })
         setLoading(false);
     }, [loading])
-
     return (
         <div>
             <h1>Hello! Here is your to do list</h1>

@@ -67,12 +67,17 @@ export default function TodoList(props) {
                 <Typography variant="h5" component="h2">
                     {task.name}
                 </Typography>
+                <Typography variant="h8" component="p">
+                    Importance: {task.priority}
+                </Typography>
                 <Typography className={classes.pos} color="textSecondary">
                     {task.date}
                 </Typography>
+                
                 <Typography variant="body2" component="p">
                     {task.description}
                 </Typography>
+                
             </CardContent>
             <CardActions>
                 <Button size="small" color="primary" onClick={() => completeTaskHandler(task._id)}>
