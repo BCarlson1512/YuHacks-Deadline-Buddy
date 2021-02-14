@@ -3,7 +3,14 @@ export const FakeData = {
     year: 2020,
     dayData: {
         '1': {
-            tasks:[]
+            tasks:[
+            {
+                name: "Kill Myself"
+            },
+            {
+                name: "Cry"
+            }
+        ]
         }
     }
 }
