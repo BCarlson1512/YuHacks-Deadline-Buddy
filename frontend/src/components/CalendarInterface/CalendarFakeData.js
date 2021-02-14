@@ -1,5 +1,6 @@
 export const FakeData = {
-    month: 'February',
+    month: 1,
+    year: 2020,
     dayData: {
         '1': {
             tasks:[]
