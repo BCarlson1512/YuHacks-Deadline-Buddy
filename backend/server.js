@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json()); // parse http requests
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://', {
+mongoose.connect('mongodb+srv://ben:Pr0ski113f2@cluster0.nzwg9.mongodb.net/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
