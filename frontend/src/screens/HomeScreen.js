@@ -3,6 +3,8 @@ import TodoItem from '../components/TodoItem';
 import '../css/card-styling.css'
 import Axios from 'axios';
 import { Button } from '@material-ui/core';
+import {Animated} from 'react-animated-css'
+
 
 export default function HomeScreen() {
 
@@ -11,7 +13,6 @@ export default function HomeScreen() {
     const [query, setQuery] = useState(0);
 
     useEffect(() => {
-        
         switch (query) {
             case 0:
                     Axios.get('/api/tasks/importanceDescending')
@@ -44,11 +45,6 @@ export default function HomeScreen() {
                     })
                 break;
         }
-        
-        Axios.get('/api/tasks/importanceDescending')
-        .then(res => {
-            setTasks(res.data.tasks)
-        })
         setLoading(false);
     }, [loading])
 
@@ -57,33 +53,37 @@ export default function HomeScreen() {
         setQuery(q);
     }
 
-
     return (
         <div>
-            <h1>Hello! Here is your to do list</h1>
-            <div>
-                Sort by:
+            <Animated>
+                <h1>Hello! Here is your to do list</h1>
+            </Animated>
+            <Animated animationIn="flipInX">
                 <div>
-                    <Button onClick={() => setQueryState(0)}>Most Important</Button>
-                    <Button onClick={() => setQueryState(1)}>Least Important</Button>
-                    <Button onClick={() => setQueryState(2)}>Type</Button>
-                    <Button onClick={() => setQueryState(3)}>Upcoming</Button>
-                    <Button onClick={() => setQueryState(4)}>Furthest Away</Button>
+                    Sort by:
+                    <div className="buttons-container">
+                        <Button variant="contained" color="primary" onClick={() => setQueryState(0)}>Most Important</Button>
+                        <Button variant="contained" color="secondary" onClick={() => setQueryState(1)}>Least Important</Button>
+                        <Button variant="contained" color="primary" onClick={() => setQueryState(2)}>Type</Button>
+                        <Button variant="contained" color="secondary" onClick={() => setQueryState(3)}>Upcoming</Button>
+                        <Button variant="contained" color="primary" onClick={() => setQueryState(4)}>Furthest Away</Button>
+                    </div>
                 </div>
-            </div>
-            <div className="card-container">
-                
-                {!loading &&
+            </Animated>
+            <Animated animationIn="fadeInUp">
+                <div className="card-container">
+                    {!loading &&
                     tasks.map((task) => (
                         <div style={{padding:'0px 10px'}}>
-                        <TodoItem key={task._id} task={task} />
+                                <TodoItem key={task._id} task={task} />
                         </div>
-                    ))
-                }
-                {loading &&
-                    <h1>Page loading</h1>
-                }
-            </div>
+                        ))
+                    }
+                    {loading &&
+                        <h1>Page loading</h1>
+                    }
+                </div>
+            </Animated>
         </div>
     )
 }

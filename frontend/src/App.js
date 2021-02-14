@@ -36,6 +36,9 @@ function App() {
           <Route path="/tasks/edit" component={EditTaskScreen} />
         </main>
       </div>
+      <footer className="app-footer">
+        2021 - Ben Carlson & Mark JP Sanchez
+      </footer>
     </BrowserRouter>
   );
 }

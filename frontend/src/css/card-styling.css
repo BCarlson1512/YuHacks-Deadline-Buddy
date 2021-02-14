@@ -2,4 +2,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 2vh;
+}
+
+.card-container > div {
+    transition: 0.5s;
+}
+
+.card-container > div:hover {
+    box-shadow: 0 0 3px #000000;
+    transition: 0.5s;
+}
+
+.buttons-container > button {
+    padding: 1vw;
+    margin-right: 0.5vw;
 }
