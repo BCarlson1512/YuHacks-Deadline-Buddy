@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import './css/nav-styles.css'
 import CreateTaskScreen from './screens/CreateTaskScreen';
 import TaskCalendarScreen from './screens/TaskCalendarScreen';
+import EditTaskScreen from './screens/EditTaskScreen';
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/create" component={CreateTaskScreen} />
-          <Route path="/tasks/monthly" component={TaskCalendarScreen}/>
+          <Route path="/tasks/monthly" component={TaskCalendarScreen} />
+          <Route path="/tasks/edit" component={EditTaskScreen} />
         </main>
       </div>
     </BrowserRouter>
