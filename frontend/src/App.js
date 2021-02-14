@@ -27,13 +27,11 @@ function App() {
           </div>
         </header>
         <main>
-          <Route path="/test" component={TestPage}/>
           <Route exact path="/" component={HomeScreen} />
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/create" component={CreateTaskScreen} />
           <Route path="/tasks/monthly" component={TaskCalendarScreen} />
-          <Route path="/tasks/edit" component={EditTaskScreen} />
         </main>
       </div>
       <footer className="app-footer">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Card,
@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core'
 import SettingsIcon from '@material-ui/icons/Settings'
 import Axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -38,19 +39,21 @@ export default function TodoList(props) {
     const classes = useStyles();
 
     const { task } = props;
+    
+    let history = useHistory();
 
     const deleteTaskHandler = (tid) => {
-        console.log(tid);
         Axios.delete('/api/tasks/delete', { data : {_id: tid}})
             .then(res => {
-            console.log(res)
         })
+        window.location.reload();
     }
 
     const completeTaskHandler = (tid) => {
         Axios.put('/api/tasks/update', { _id: tid, isComplete: "true" })
             .then(res => {
             })
+        window.location.reload();
     }
 
     const dateJS = new Date(task.date)
@@ -60,6 +63,10 @@ export default function TodoList(props) {
         hour12: false,
         timeZone: 'America/Los_Angeles'
     };
+
+    const redirect = () => {
+        history.push(`/tasks/${task._id}/edit`)
+    }
 
     return (
         <Card raised style={{ backgroundColor:" #3C4B64", color:"#ffffff"}}>
@@ -88,7 +95,7 @@ export default function TodoList(props) {
                 
             </CardContent>
             <CardActions>
-                <Button size="small" style={{color:"#AFB6F0"}} onClick={() => completeTaskHandler(task._id)}>
+                <Button size="small" style={{color:"#AFB6F0"}} onClick={() => completeTaskHandler(task._id)} disabled={task.isComplete}>
                     Done!
                 </Button>
                 <Button size="small" style={{color:"#ffffff"}} onClick={() => deleteTaskHandler(task._id)}>

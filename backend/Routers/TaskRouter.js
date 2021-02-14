@@ -42,6 +42,11 @@ taskRouter.get('/typeAlphabetical', expressAsyncHandler(async (req, res) => {
     res.send({ tasks });
 }))
 
+taskRouter.get('/:id', expressAsyncHandler(async (req, res) => {
+    const task = await Task.findById(req.params._id);
+    res.send(task);
+}))
+
 taskRouter.post('/', expressAsyncHandler(async (req, res) => {
     const task = new Task({
         name: req.body.name,

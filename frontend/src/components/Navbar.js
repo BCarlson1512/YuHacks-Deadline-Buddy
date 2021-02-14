@@ -9,8 +9,8 @@ export default function Navbar({open, setOpen}) {
                 <Link to="/">My Tasks</Link>
                 <Link to="/tasks/monthly">Monthly Overview</Link>
                 <Link to="/create">Create Tasks</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Create an account</Link>
+                <Link to="/login">Login (Coming Soon)</Link>
+                <Link to="/register">Create an account (Coming Soon)</Link>
             </div>
         </div>
     )
