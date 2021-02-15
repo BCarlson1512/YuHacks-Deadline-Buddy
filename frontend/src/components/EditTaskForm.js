@@ -4,10 +4,12 @@ import '../css/formStyles.css'
 import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { Animated } from 'react-animated-css';
+import axios from 'axios';
 
 export default function EditTaskForm(props) {
-    
-    const { task } = props;
+    const {id} = props;
+
+    const [taska, setTask] = useState({});
     const [name, setName] = useState('');
     const [desc, setDesc] = useState('');
     const [type, setType] = useState('');
@@ -37,18 +39,22 @@ export default function EditTaskForm(props) {
     }
 
     const setState = () => {
-        setName(task.name);
-        setDesc(task.description)
-        setType(task.type)
-        setDate(task.date)
-        setPriority(task.priority)
+        setName(taska.name);
+        setDesc(taska.description)
+        setType(taska.type)
+        setDate(taska.date)
+        setPriority(taska.priority)
     }
 
     useEffect(() => {
-        setState();
-        setLoading(false);
-    }, [loading, setState])
-
+        axios.get(`/api/tasks/${id}`, {params: { _id:id}})
+        .then(res => {
+            setTask(res.data.task)
+        })
+        setState()
+        setLoading(false)
+    }, [id, loading])
+    console.log(name)
     return (
         <div>
             {!loading && (
@@ -63,7 +69,6 @@ export default function EditTaskForm(props) {
                             id="datetime-local"
                             label="Date"
                             type="datetime-local"
-                            value={date}
                             className="standard-basic"
                             InputLabelProps={{
                                 shrink: true,
