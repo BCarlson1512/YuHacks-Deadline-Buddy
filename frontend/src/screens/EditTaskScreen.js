@@ -8,9 +8,9 @@ export default function EditTaskScreen(props) {
     const [task, setTask] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        axios.get(`/${id}`, {_id: id})
-        .then(res => {
-            console.log(res)
+        axios.get(`/api/tasks/${id}`, {params: { _id:id}})
+            .then(res => {
+            setTask(res.data.task)
         })
         setLoading(false)
     }, [id, loading])

@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core'
 import SettingsIcon from '@material-ui/icons/Settings'
 import Axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -72,9 +72,11 @@ export default function TodoList(props) {
         <Card raised style={{ backgroundColor:" #3C4B64", color:"#ffffff"}}>
             <CardHeader
                 action={
-                    <IconButton aria-label="settings">
-                        <SettingsIcon />
-                    </IconButton>
+                    <Link to={`/tasks/${task._id}/edit`}>
+                        <IconButton aria-label="settings">
+                            <SettingsIcon />
+                        </IconButton>
+                    </Link>
                 }
                 title={task.type}
             />

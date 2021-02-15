@@ -43,8 +43,8 @@ taskRouter.get('/typeAlphabetical', expressAsyncHandler(async (req, res) => {
 }))
 
 taskRouter.get('/:id', expressAsyncHandler(async (req, res) => {
-    const task = await Task.findById(req.params._id);
-    res.send(task);
+    const task = await Task.findById(req.params.id);
+    res.send({task});
 }))
 
 taskRouter.post('/', expressAsyncHandler(async (req, res) => {

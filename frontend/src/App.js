@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen';
-import TestPage from './screens/TestPage'
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import { useState } from 'react';
@@ -32,6 +30,7 @@ function App() {
           <Route path="/register" component={RegisterScreen} />
           <Route path="/create" component={CreateTaskScreen} />
           <Route path="/tasks/monthly" component={TaskCalendarScreen} />
+          <Route path='/tasks/:id/edit' component={EditTaskScreen} />
         </main>
       </div>
       <footer className="app-footer">
