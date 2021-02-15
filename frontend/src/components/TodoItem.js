@@ -96,7 +96,12 @@ export default function TodoList(props) {
             </CardContent>
             <CardActions>
                 <Button size="small" style={{color:"#AFB6F0"}} onClick={() => completeTaskHandler(task._id)} disabled={task.isComplete}>
-                    Done!
+                    {task.isComplete === true ? (
+                        <p>Task Completed</p>
+                    ): (
+                        <p>Done!</p>
+                    )
+                    }
                 </Button>
                 <Button size="small" style={{color:"#ffffff"}} onClick={() => deleteTaskHandler(task._id)}>
                     Delete
